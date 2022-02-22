@@ -42,4 +42,5 @@
       시각화 되어 있는 리액티브 연산자는 이해햐기 쉽다.
     - 리액티브 프로그램잉의 핵심인 연산자(Operators)를 사용하기 위한 핵심 도구
 
-    ![image](https://user-images.githubusercontent.com/8993602/155144524-b1279e49-0e91-4ee5-bd6d-ac18a8c5359c.png)
+
+![image](https://user-images.githubusercontent.com/8993602/155144524-b1279e49-0e91-4ee5-bd6d-ac18a8c5359c.png)
