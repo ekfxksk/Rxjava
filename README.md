@@ -29,10 +29,10 @@
 
 
 ## RxJava의 기본 프로세스
-    1) 데이터를 발행
-    2) 데이터를 가공
-    3) 데이터를 구독
-    4) 데이터를 처리
+    1) 발행
+    2) 가공
+    3) 구독
+    4) 처리
 
 ## 마블 다이어그램이란?
     - 리액티브 프로그래밍을 통해 발행하는 비동기적인 데이터 흐름을 시간의 흐름에 따라 시각적으로 표시한 다이어 그램
@@ -44,3 +44,27 @@
 
 
 ![image](https://user-images.githubusercontent.com/8993602/155144524-b1279e49-0e91-4ee5-bd6d-ac18a8c5359c.png)
+
+
+## 리액티브 스트림즈(Reactive Streams)란?
+ - 리액티브 프로그래밍 라이브러리의 표준 사양이다.   
+   (https://github.com/reactive-streams/reactive-streams-jvm)
+ - 리액티브 프로그래밍에 대한 인터페이스만 제공한다.
+ - RxJava는 이 Reactive Streams의 인터페이스들을 구현한 구현체 이다.
+ - Reactive Streams는 4개의 인터페이스를 제공한다.
+    > Publisher : 데이터를 생성하고 통지한다.  
+    > Subscriber : 통지된 데이터를 전달받아서 처리한 다.  
+    > Subscription : 전달 받을 데이터의 갯수를 요청하고 구독을 해지한다.   
+    > Processor : Publisher와 Subscriber의 기능이 모두 있다.
+
+![image](https://user-images.githubusercontent.com/8993602/155240099-b5e7f376-bbc7-430c-8cd1-414606c3a499.png)
+
+## Cold Publisher & Hot Publisher
+    1) Cold Publisher
+        - 생산자는 소비자가 구독 할때마다 데이터를 처음부터 새로 통지한다.
+        - 데이터를 통지하는 새로운 타임 라인이 생성된다.
+        - 소비자는 구독 시점과 상관없이 통지된 데이터를 처음부터 전달 받을 수 있다.
+    2) Hot Publisher
+        - 생산자는 소비자 수와 상관없이 데이터를 한번만 통지한다.
+        - 데이터를 통지하는 타임 라인은 하나이다.
+        - 소비자는 발행된 데이터를 처음부터 전달 받는게 아니라 구독한 시점에 통지된 데이터들만 전달 받을 수 있다.
