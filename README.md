@@ -68,3 +68,21 @@
         - 생산자는 소비자 수와 상관없이 데이터를 한번만 통지한다.
         - 데이터를 통지하는 타임 라인은 하나이다.
         - 소비자는 발행된 데이터를 처음부터 전달 받는게 아니라 구독한 시점에 통지된 데이터들만 전달 받을 수 있다.
+
+## Flowable과 Observable의 비교
+    - Flowable, Observable 모두 데이터를 통지하는 생산자
+
+|Flowable|Observable|
+|--------|----------|
+|Reactive Streams 인테페이스를 구현 함 | Reactive Streams 인테페이스를 구현 하지않고, RxJava2 독자적으로 제공해주는 클래스| 
+|Subscriber에서 데이터를 처리한다. | Observer에서 데이터를 처리한다. |
+|데이터 개수를 제어하는 배압 기능이 있음 | 데이터 개수를 제어하는 배압 기능이 없음|
+|Subscription으로 전달 받는 데이터 개수를 제어할 수 있다. | 배압 기능이 없기 때문에 데이터 개수를 제어할 수 없다. |
+|Subscription으로 구독을 해지한다. | Disposable로 구독을 해지한다. |
+
+### 배압(Back Pressure)이란?
+    - Flowable에서 데이터를 통지하는 속도가 Subscriber에서 통지된 데이터를 전달받아 처리하는 속도 보다 빠를 때 밸런스를 맞추기 위해 데이터 통지량을 제어하는 기능을 말한다.
+
+![image](https://user-images.githubusercontent.com/8993602/155624163-57ab46ea-82b8-44b5-bc69-432fe5c04e3f.png)
+
+### 배압 전략(BackpressureStrategy)
