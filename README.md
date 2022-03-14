@@ -238,3 +238,23 @@
     - 원본 Observable에서 완료 통지를 받는 즉시 Map을 통지한다.
     - 이미 사용중인 key를 또 생성하면 기존에 있던 key와 value를 덮어 쓴다.
     - 통지되는 데이터는 원본 데이터를 담은 Map 하나이므로 Single로 반환된다.
+
+### 데이터 결합 연산자
+
+#### 1. merge
+    - 다수의 Observable에서 통지된 데이터를 ㅂ다아서 다시 하나의 Flowable/Observable로 통지한다.
+    - 통지된 시점이 빠른 Observable의 데이터부터 순차적으로 통지되고 통지 시점이 같을 경우에는 merge() 함수의 파라미터로 먼저 지정된 Observable의 데이터부터 통지된다.
+
+#### 2. concat
+    - 다수의 Observable에서 통지된 데이터를 받아서 다시 하나의 Observable로 통지한다.
+    - 하나의 Observable에서 통지가 끝나면 다음 Observable에서 연이어서 통지가 된다.
+    - 각 Observable의 통지 시점과는 사관 없이 concat() 함수가 파라미터로 먼저 입력된 Observable의 데이터부터 모두 통지된 후, 다음 Observable의 데이터가 통지된다.
+
+#### 3. zip
+    - 다수의 Observable에서 통지된 데이터를 받아서 다시 하나의 Observable로 통지한다.
+    - 각 Observable에서 통지된 데이터가 모두 모이면 각 Observable에서 동일한 index의 데이터로 새로운 데이터를 생성한 후 통지한다.
+    - 통지하는 데이터의 개수가 가장 적은 Observable의 통지 시점에 완료 통지 시점을 맞춘다.
+
+#### 4. combineLatest
+    - 다수의 Observable에서 통지된 데이터를 받아서 하나의 Observable로 통지한다.
+    - 각 Observable에서 데이터를 통지할 때마다 모든 Observable에서 마지막으로 통지한 데이터를 함수형 인터페이스에 전달하고, 새로운 데이터르 생성해 통지한다.
