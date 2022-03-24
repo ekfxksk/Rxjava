@@ -298,3 +298,27 @@
 #### 5. materialize / dematerialize
     - materialize : 통지된 데이터와 통지된 데이터의 통지 타입 자체를 Notification 객체에 담고 이 Notification 객체를 통지한다. 즉, 통지 데이터의 메타 데이터를 포함해서 통지한다고 볼 수 있다.
     - dematerialize : 통지된 Notification 객체를 원래의 통지 데이터로 변환해서 통지한다.
+
+### 조건과 불린 연산자
+
+#### 1. all
+    - 통지되는 모든 데이터가 설정한 조건에 맞는지를 판다한다.
+    - 결과값을 한번만 통지하면 되기때문에 true/false 값을 Single로 반환한다.
+    - 통지된 데이터가 조건에 맞지 않는다면 이후 데이터는 구독 해지되어 통지 되지 않늗나.
+
+#### 2. amb 
+    - 여러개의 Observable 중에서 최초 통지 시점이 가장 빠른 Observable의 데이터만 통지되고, 나머지 Observable은 무시된다.
+    - 즉, 가장 먼저 통지를 시작한 Observable의 데이터만 통지된다.
+
+#### 3. contains
+    - 파라미터의 데이터가 Observable에 포함되어 있는지를 판단한다.
+    - 결과값을 한번만 통지하면 되기때문에 true/false 값을 Single로 반환한다.
+    - 결과 통지 시점은 Observable에 포함된 데이터를 통지하거나 완료를 통지할 때이다.
+
+#### 4. defaultIfEmpty
+    - 통지할 데이터가 없을 경우 파라미터로 입력된 값을 통지한다.
+    - 연산자 이름 의미 그대로 Observable에 통지할 데이터가 없이 비어 있는 상태일 때, 디폴드 값을 통지한다.
+
+#### 5. sequenceEqual
+    - 두 Observable이 동징한 순서로 동일한 갯수의 같은 데이터를 통지하는지 판단한다.
+    - 통지 시점과 무관하게 데이터의 정합성만 판단하므로 통지 시점이 다르더라도 조건이 맞다면 true를 통지나다.
