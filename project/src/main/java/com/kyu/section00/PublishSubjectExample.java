@@ -1,4 +1,4 @@
-package com.kyu.chapter06;
+package com.kyu.section00;
 
 import io.reactivex.subjects.PublishSubject;
 
