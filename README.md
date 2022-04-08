@@ -417,3 +417,26 @@
     - 생산자가 에러를 통지하는 시점에, 지정된 작업을 처리할 수 있다.
     - onError 이벤트가 발생하기 직전에 실행된다.
     - 통지된 에러 객체가 함수형 인터페이스의 파라미터로 전달되므로 에러 상태를 확인할 수 있다.
+
+#### doOnEach
+    - doOnNext, doOnComplete, doOnError를 한번에 처리할 수 있다.
+    - Notification 객체를 함수혐 인터페이스의 파라미터로 전달 받아서 처리한다.
+
+#### doOnCancel / doOnDispose
+     - 소비자가 구독을 해지하는 시점에, 지정된 작업을 처리할 수 있다.
+     - 완료나 에러로 종료 될 경우에는 실행되지 않는다.
+
+#### doAfterNext
+    - 생산자가 통지한 데이터가 소비자에 전달된 직후 호출되는 함수
+
+#### doOnTerminate
+    - 완료 또는 에러가 통지 될 때 호출되는 함수 (doOnComplete + doOnError)
+
+#### doAfterTerminate
+    - 완료 또는 에러가 통지된 후 호출 되는 함수 (after doOnComplete + doOnError)
+
+#### doFinally
+    - 구독이 취소 된 후 완료 또는 에러가 통지된 후 호출되는 함수 (doOndispose/doOnCancel + doOnComplete + doOnError)
+
+#### doOnLifecycle
+    - 소비자가 구독할 떄 또는 구독 해지할 떄 호출되는 함수 (doOnSubscribe + doOndispose/doOnCancel)
