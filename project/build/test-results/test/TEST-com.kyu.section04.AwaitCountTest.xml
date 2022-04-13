@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kyu.section04.AwaitCountTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-04-13T13:12:45" hostname="DESKTOP-2QHCPDA" time="1.137">
+  <properties/>
+  <testcase name="awaitCountTest()" classname="com.kyu.section04.AwaitCountTest" time="1.137"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

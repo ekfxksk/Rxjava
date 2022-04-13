@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.kyu.section03.BlockingSubscribeTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-04-12T13:53:07" hostname="DESKTOP-2QHCPDA" time="0.105">
-  <properties/>
-  <testcase name="test1()" classname="com.kyu.section03.BlockingSubscribeTest" time="0.105"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
