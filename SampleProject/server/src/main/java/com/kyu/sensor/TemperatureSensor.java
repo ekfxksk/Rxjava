@@ -1,0 +1,23 @@
+package com.kyu.sensor;
+
+import com.kyu.utils.NumberUtil;
+import io.reactivex.rxjava3.core.Observable;
+import org.springframework.stereotype.Component;
+
+import java.util.concurrent.TimeUnit;
+
+@Component
+public class TemperatureSensor {
+    public Observable<Integer> getTemperatureStream() {
+        return Observable.interval(0L, TimeUnit.MILLISECONDS)
+                .delay(item ->{
+                    Thread.sleep(NumberUtil.randomRange(1000, 3000));
+                    return Observable.just(item);
+                })
+                .map(notUse -> this.getTemperature());
+    }
+
+    private int getTemperature() {
+        return NumberUtil.randomRange(-10, 30);
+    }
+}
